@@ -1,0 +1,681 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.CoursesQuangTnvs.IndexModel
+
+@{
+    ViewData["Title"] = "Course Management";
+}
+
+<!-- Custom CSS -->
+<style>
+    /* Navigation Styles */
+    .navbar {
+        border-bottom: 1px solid #e9ecef;
+        background: white !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .dropdown-menu {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        border: none !important;
+        border-radius: 15px !important;
+    }
+    
+    .dropdown-item:hover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white !important;
+        border-radius: 8px;
+        margin: 2px 8px;
+    }
+    
+    .dropdown-item:hover i {
+        color: white !important;
+    }
+    
+    .dropdown-item.text-danger:hover {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white !important;
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .search-filter-section {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        margin-bottom: 2rem;
+        border: 1px solid #e8ecef;
+    }
+
+    .btn-create {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        border: none;
+        padding: 12px 25px;
+        font-weight: 600;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        transition: all 0.3s ease;
+    }
+
+        .btn-create:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+    .course-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #e8ecef;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+    }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+    .course-header {
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .course-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+
+    .course-instructor {
+        color: #6c757d;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .course-body {
+        padding: 1.5rem;
+    }
+
+    .course-description {
+        color: #495057;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .course-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .badge-custom {
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .badge-active {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        color: white;
+    }
+
+    .badge-inactive {
+        background: #6c757d;
+        color: white;
+    }
+
+    .rating-stars {
+        color: #ffc107;
+    }
+
+    .difficulty-badge {
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .difficulty-beginner {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .difficulty-intermediate {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .difficulty-advanced {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .btn-action {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid;
+    }
+
+    .btn-edit {
+        background: #fff;
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-edit:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+    .btn-details {
+        background: #fff;
+        color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+        .btn-details:hover {
+            background: #17a2b8;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+    .btn-delete {
+        background: #fff;
+        color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-delete:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        border: 1px solid #e8ecef;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+
+    .stat-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .thumbnail-preview {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid #dee2e6;
+    }
+
+    .search-box {
+        position: relative;
+    }
+
+    .search-input {
+        border-radius: 25px;
+        border: 2px solid #e9ecef;
+        padding: 12px 45px 12px 20px;
+        transition: all 0.3s ease;
+    }
+
+        .search-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.2);
+        }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+</style>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="/">
+            <i class="fas fa-shield-alt me-2"></i>Drug Prevention Portal
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active fw-medium" href="/CoursesQuangTnvs">
+                        <i class="fas fa-graduation-cap me-1"></i>Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#">
+                        <i class="fas fa-chart-bar me-1"></i>Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#">
+                        <i class="fas fa-users me-1"></i>Users
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-nav">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="user-avatar me-2">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="fw-medium">Quang TNV</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" aria-labelledby="userDropdown" 
+                        style="min-width: 220px;">
+                        <li class="px-3 py-2 border-bottom">
+                            <small class="text-muted">Signed in as</small><br>
+                            <strong>Quang TNV</strong><br>
+                            <small class="text-muted">Administrator</small>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center py-2" href="#">
+                                <i class="fas fa-user me-3 text-primary"></i>
+                                My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center py-2" href="#">
+                                <i class="fas fa-cog me-3 text-secondary"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center py-2" href="#">
+                                <i class="fas fa-bell me-3 text-warning"></i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider my-2"></li>
+                        <li>
+                            <!-- Form for logout functionality -->
+                            <form method="get" asp-page="/Account/Logout" class="d-inline w-100">
+                                <button type="submit" class="dropdown-item d-flex align-items-center py-2 text-danger border-0 bg-transparent w-100 text-start">
+                                    <i class="fas fa-sign-out-alt me-3"></i>
+                                    Sign Out
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="hero-title">Course Management</h1>
+                <p class="hero-subtitle">Manage and organize educational courses for drug prevention programs</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a asp-page="Create" class="btn btn-create text-white">
+                    <i class="fas fa-plus me-2"></i>Create New Course
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Statistics Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">@Model.CoursesQuangTnv.Count()</div>
+            <div class="stat-label">Total Courses</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">@Model.CoursesQuangTnv.Count(c => c.IsActive)</div>
+            <div class="stat-label">Active Courses</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">@(Model.CoursesQuangTnv.Any() ? Model.CoursesQuangTnv.Sum(c => c.ViewCount) : 0)</div>
+            <div class="stat-label">Total Views</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">
+                @(Model.CoursesQuangTnv.Any(c => c.Rating.HasValue)
+                    ? Model.CoursesQuangTnv.Where(c => c.Rating.HasValue).Average(c => c.Rating.Value).ToString("F1")
+                    : "0.0")
+            </div>
+            <div class="stat-label">Average Rating</div>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="search-box">
+                    <input type="text" class="form-control search-input" placeholder="Search courses..." id="searchInput">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex gap-2 justify-content-md-end">
+                    <select class="form-select" style="border-radius: 20px;" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        @foreach (var category in Model.CoursesQuangTnv.Select(c => c.Category).Distinct().Where(c => !string.IsNullOrEmpty(c)))
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                    <select class="form-select" style="border-radius: 20px;" id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <div class="row" id="coursesContainer">
+        @if (Model.CoursesQuangTnv.Any())
+        {
+            @foreach (var item in Model.CoursesQuangTnv)
+            {
+                <div class="col-lg-6 course-item"
+                id="@item.CourseIdquangTnv"
+                     data-title="@item.Title?.ToLower()"
+                     data-category="@item.Category?.ToLower()"
+                     data-status="@(item.IsActive ? "active" : "inactive")">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="flex-grow-1">
+                                    <h5 class="course-title">@item.Title</h5>
+                                    <div class="course-instructor">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>@item.InstructorName</span>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    @if (!string.IsNullOrEmpty(item.ThumbnailUrl))
+                                    {
+                                        <img src="@item.ThumbnailUrl" alt="Course thumbnail" class="thumbnail-preview">
+                                    }
+                                    else
+                                    {
+                                        <div class="thumbnail-preview bg-light d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-image text-muted"></i>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-body">
+                            <p class="course-description">@item.Description</p>
+
+                            <div class="course-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>@item.DurationInMinutes min</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>@item.AgeGroup</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>@item.ViewCount views</span>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="rating-stars">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= item.Rating)
+                                            {
+                                                <i class="fas fa-star"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="far fa-star"></i>
+                                            }
+                                        }
+                                    </div>
+                                    <span>(@item.Rating)</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <span class="badge badge-custom @(item.IsActive ? "badge-active" : "badge-inactive")">
+                                        @(item.IsActive ? "Active" : "Inactive")
+                                    </span>
+                                    @if (!string.IsNullOrEmpty(item.Category))
+                                    {
+                                        <span class="badge bg-secondary ms-2">@item.Category</span>
+                                    }
+                                </div>
+                                <span class="difficulty-badge @($"difficulty-{item.DifficultyLevel?.ToLower()}")">
+                                    @item.DifficultyLevel
+                                </span>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(item.LearningObjectives))
+                            {
+                                <div class="mb-3">
+                                    <small class="text-muted">
+                                        <strong>Learning Objectives:</strong> @item.LearningObjectives
+                                    </small>
+                                </div>
+                            }
+
+                            <div class="action-buttons">
+                                <a asp-page="./Edit" asp-route-id="@item.CourseIdquangTnv" class="btn-action btn-edit">
+                                    <i class="fas fa-edit me-1"></i>Edit
+                                </a>
+                                <a asp-page="./Details" asp-route-id="@item.CourseIdquangTnv" class="btn-action btn-details">
+                                    <i class="fas fa-info me-1"></i>Details
+                                </a>
+                                <a asp-page="./Delete" asp-route-id="@item.CourseIdquangTnv" class="btn-action btn-delete">
+                                    <i class="fas fa-trash me-1"></i>Delete
+                                </a>
+                            </div>
+
+                            <div class="text-muted mt-3" style="font-size: 0.8rem;">
+                                <div class="d-flex justify-content-between">
+                                    <span>Created: @item.CreatedDate.ToString("MMM dd, yyyy")</span>
+                                    <span>Updated: @item.UpdatedDate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-graduation-cap fa-4x text-muted mb-3"></i>
+                    <h3 class="text-muted">No courses found</h3>
+                    <p class="text-muted">Start by creating your first course</p>
+                    <a asp-page="Create" class="btn btn-create text-white">
+                        <i class="fas fa-plus me-2"></i>Create First Course
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- JavaScript for Search and Filter -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const courseItems = document.querySelectorAll('.course-item');
+
+        function filterCourses() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value.toLowerCase();
+            const selectedStatus = statusFilter.value.toLowerCase();
+
+            courseItems.forEach(item => {
+                const title = item.dataset.title || '';
+                const category = item.dataset.category || '';
+                const status = item.dataset.status || '';
+
+                const matchesSearch = title.includes(searchTerm);
+                const matchesCategory = !selectedCategory || category.includes(selectedCategory);
+                const matchesStatus = !selectedStatus || status === selectedStatus;
+
+                if (matchesSearch && matchesCategory && matchesStatus) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterCourses);
+        categoryFilter.addEventListener('change', filterCourses);
+        statusFilter.addEventListener('change', filterCourses);
+    });
+</script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script>
+    "use strict";
+
+    var connection = new signalR.HubConnectionBuilder().withUrl("/drugPreventionHub").build();
+
+    connection.start().then(function () {
+        console.log("Connected to the SignalR Hub");
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    connection.on("Receive_DeleteCourseQuangTNV", function (CourseIdquangTnv) {
+        $('#coursesContainer').find(`div[id='${CourseIdquangTnv}']`).remove();
+    });
+    connection.on("Receive_CreateCourseQuangTNV", function (item) {
+        console.log(item);
+        var CourseQuangTNV = `
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${item.Title}</td>
+                    <td>${item.DifficultyLevel}</td>
+                    <td>${item.Description}</td>
+                    <td>${item.Category}</td>
+                    <td>${item.AgeGroup}</td>
+                    <td>${item.InstructorName}</td>
+                    <td>${item.DurationInMinutes}</td>
+                    <td>${item.ContentUrl}</td>
+                    <td>${item.ThumbnailUrl}</td>
+                </tr>
+            `;
+
+        alert(CourseQuangTNV);
+
+        $('CourseIdquangTnv').append(CourseQuangTNV)
+    });
+
+</script>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

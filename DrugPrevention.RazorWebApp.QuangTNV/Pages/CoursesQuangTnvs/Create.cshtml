@@ -1,0 +1,743 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.CoursesQuangTnvs.CreateModel
+
+@{
+    ViewData["Title"] = "Create New Course";
+}
+
+<!-- Custom CSS -->
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+
+    .page-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 30px 30px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .page-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .form-container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-bottom: 2rem;
+    }
+
+    .form-header {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 2rem;
+        border-bottom: 1px solid #dee2e6;
+        text-align: center;
+    }
+
+        .form-header h3 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+
+    .form-body {
+        padding: 3rem;
+    }
+
+    .form-section {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+    .section-title {
+        color: #2c3e50;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .section-icon {
+        color: #667eea;
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .label-icon {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .form-control.is-invalid {
+            border-color: #dc3545;
+            box-shadow: 0 0 20px rgba(220, 53, 69, 0.2);
+        }
+
+        .form-control.is-valid {
+            border-color: #28a745;
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.2);
+        }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .text-danger {
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .validation-icon {
+        font-size: 0.8rem;
+    }
+
+    .input-group {
+        position: relative;
+    }
+
+    .input-group-text {
+        background: #667eea;
+        color: white;
+        border: 2px solid #667eea;
+        border-radius: 12px 0 0 12px;
+        font-weight: 600;
+    }
+
+    .input-group .form-control {
+        border-left: none;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .form-check {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+        .form-check:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+
+    .form-check-input {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 0;
+    }
+
+    .form-check-label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-left: 0.5rem;
+    }
+
+    .btn-container {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding-top: 2rem;
+        border-top: 1px solid #e9ecef;
+        margin-top: 2rem;
+    }
+
+    .btn-create {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(40, 167, 69, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+        .btn-create:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+            color: white;
+        }
+
+    .btn-back {
+        background: #6c757d;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .btn-back:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+    .progress-indicator {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .progress-step {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e9ecef;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin: 0 10px;
+        position: relative;
+    }
+
+        .progress-step.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .progress-step.completed {
+            background: #28a745;
+            color: white;
+        }
+
+        .progress-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 20px;
+            height: 2px;
+            background: #e9ecef;
+            transform: translateY(-50%);
+        }
+
+        .progress-step:last-child::after {
+            display: none;
+        }
+
+    .url-preview {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        display: none;
+    }
+
+        .url-preview.show {
+            display: block;
+        }
+
+        .url-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+    .char-counter {
+        font-size: 0.875rem;
+        color: #6c757d;
+        text-align: right;
+        margin-top: 0.25rem;
+    }
+
+        .char-counter.warning {
+            color: #ffc107;
+        }
+
+        .char-counter.danger {
+            color: #dc3545;
+        }
+
+    .tooltip-icon {
+        color: #6c757d;
+        cursor: help;
+        margin-left: 0.25rem;
+    }
+
+    .form-control.shake {
+        animation: shake 0.5s ease-in-out;
+    }
+
+    /* Loading animation */
+    .btn-create.loading {
+        position: relative;
+        color: transparent;
+    }
+
+        .btn-create.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+</style>
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="page-title">Create New Course</h1>
+                <p class="page-subtitle">Build engaging educational content for drug prevention programs</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <div class="progress-indicator d-none d-md-flex">
+                    <div class="progress-step active">1</div>
+                    <div class="progress-step">2</div>
+                    <div class="progress-step">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">
+            <h3>Course Information</h3>
+            <p>Fill in the details below to create a comprehensive course</p>
+        </div>
+
+        <div class="form-body">
+            <form method="post" id="courseForm">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger d-flex align-items-center" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <div>Please correct the errors below and try again.</div>
+                </div>
+
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-info-circle section-icon"></i>
+                        Basic Information
+                    </h4>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.Title" class="form-label">
+                                    <i class="fas fa-heading label-icon"></i>
+                                    Course Title
+                                    <i class="fas fa-question-circle tooltip-icon" title="Enter a descriptive title for your course"></i>
+                                </label>
+                                <input asp-for="CoursesQuangTnv.Title" class="form-control" placeholder="Enter course title..." maxlength="100" />
+                                <div class="char-counter">
+                                    <span id="titleCounter">0</span>/100 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.DifficultyLevel" class="form-label">
+                                    <i class="fas fa-layer-group label-icon"></i>
+                                    Difficulty Level
+                                </label>
+                                <select asp-for="CoursesQuangTnv.DifficultyLevel" class="form-select">
+                                    <option value="">Select Difficulty</option>
+                                    <option value="Beginner">🟢 Beginner</option>
+                                    <option value="Intermediate">🟡 Intermediate</option>
+                                    <option value="Advanced">🔴 Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CoursesQuangTnv.Description" class="form-label">
+                            <i class="fas fa-align-left label-icon"></i>
+                            Description
+                        </label>
+                        <textarea asp-for="CoursesQuangTnv.Description" class="form-control" rows="4"
+                                  placeholder="Provide a detailed description of the course content, objectives, and what students will learn..." maxlength="500"></textarea>
+                        <div class="char-counter">
+                            <span id="descCounter">0</span>/500 characters
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.Category" class="form-label">
+                                    <i class="fas fa-tags label-icon"></i>
+                                    Category
+                                </label>
+                                <select asp-for="CoursesQuangTnv.Category" class="form-select">
+                                    <option value="">Select Category</option>
+                                    <option value="Prevention Education">🛡️ Prevention Education</option>
+                                    <option value="Awareness Programs">📢 Awareness Programs</option>
+                                    <option value="Rehabilitation Support">🤝 Rehabilitation Support</option>
+                                    <option value="Community Outreach">🏘️ Community Outreach</option>
+                                    <option value="Professional Training">👨‍💼 Professional Training</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.AgeGroup" class="form-label">
+                                    <i class="fas fa-users label-icon"></i>
+                                    Target Age Group
+                                </label>
+                                <select asp-for="CoursesQuangTnv.AgeGroup" class="form-select">
+                                    <option value="">Select Age Group</option>
+                                    <option value="Children (6-12)">👶 Children (6-12)</option>
+                                    <option value="Teenagers (13-17)">👦 Teenagers (13-17)</option>
+                                    <option value="Young Adults (18-25)">👨 Young Adults (18-25)</option>
+                                    <option value="Adults (26-65)">👩 Adults (26-65)</option>
+                                    <option value="All Ages">🌍 All Ages</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Details Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-cog section-icon"></i>
+                        Course Details
+                    </h4>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.InstructorName" class="form-label">
+                                    <i class="fas fa-user-tie label-icon"></i>
+                                    Instructor Name
+                                </label>
+                                <input asp-for="CoursesQuangTnv.InstructorName" class="form-control" placeholder="Enter instructor's full name" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.DurationInMinutes" class="form-label">
+                                    <i class="fas fa-clock label-icon"></i>
+                                    Duration (Minutes)
+                                </label>
+                                <div class="input-group">
+                                    <input asp-for="CoursesQuangTnv.DurationInMinutes" class="form-control" type="number" min="1" max="600" placeholder="60" />
+                                    <span class="input-group-text">min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CoursesQuangTnv.LearningObjectives" class="form-label">
+                            <i class="fas fa-bullseye label-icon"></i>
+                            Learning Objectives
+                        </label>
+                        <textarea asp-for="CoursesQuangTnv.LearningObjectives" class="form-control" rows="3"
+                                  placeholder="List the key learning objectives and outcomes for this course..." maxlength="300"></textarea>
+                        <div class="char-counter">
+                            <span id="objectivesCounter">0</span>/300 characters
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media & Content Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-photo-video section-icon"></i>
+                        Media & Content
+                    </h4>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.ContentUrl" class="form-label">
+                                    <i class="fas fa-link label-icon"></i>
+                                    Content URL
+                                    <i class="fas fa-question-circle tooltip-icon" title="Link to the main course content (video, document, etc.)"></i>
+                                </label>
+                                <input asp-for="CoursesQuangTnv.ContentUrl" class="form-control" type="url"
+                                       placeholder="https://example.com/course-content" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.ThumbnailUrl" class="form-label">
+                                    <i class="fas fa-image label-icon"></i>
+                                    Thumbnail URL
+                                    <i class="fas fa-question-circle tooltip-icon" title="Link to course thumbnail image"></i>
+                                </label>
+                                <input asp-for="CoursesQuangTnv.ThumbnailUrl" class="form-control" type="url"
+                                       placeholder="https://example.com/thumbnail.jpg" id="thumbnailInput" />
+                                <div class="url-preview" id="thumbnailPreview">
+                                    <img id="thumbnailImg" src="" alt="Thumbnail Preview" style="max-height: 150px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-container">
+                    <a asp-page="Index" class="btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to List
+                    </a>
+                    <button type="submit" class="btn-create" id="submitBtn">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        Create Course
+                    </button>
+                    <input type="button" id="btnHubCreate" value="Create by SignalRHub" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script>
+    "use strict";
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/drugPreventionHub").build();
+
+    connection.start().then(function () {
+        console.log("Connected to the SignalR Hub");
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    document.getElementById("btnHubCreate").addEventListener("click", function (event) {
+
+        var dataObj = JSON.stringify({
+            Title: document.getElementById("CoursesQuangTnv_Title").value,
+            DifficultyLevel: document.getElementById("CoursesQuangTnv_DifficultyLevel").value,
+            Description: document.getElementById("CoursesQuangTnv_Description").value,
+            Category: document.getElementById("CoursesQuangTnv_Category").value,
+            AgeGroup: document.getElementById("CoursesQuangTnv_AgeGroup").value,
+            InstructorName: document.getElementById("CoursesQuangTnv_InstructorName").value,
+            DurationInMinutes: document.getElementById("CoursesQuangTnv_DurationInMinutes").value,
+            ContentUrl: document.getElementById("CoursesQuangTnv_ContentUrl").value,
+            ThumbnailUrl: document.getElementById("thumbnailInput").value
+        });
+
+        console.log(dataObj);
+
+        connection.invoke("HubCreate_CoursesQuangTnv", dataObj).catch(function (err) {
+            return console.error(err.toString());
+        });
+        event.preventDefault();
+
+    });
+</script>
+
+<!-- JavaScript for Enhanced UX -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Character counters
+        const titleInput = document.querySelector('input[name="CoursesQuangTnv.Title"]');
+        const descInput = document.querySelector('textarea[name="CoursesQuangTnv.Description"]');
+        const objectivesInput = document.querySelector('textarea[name="CoursesQuangTnv.LearningObjectives"]');
+
+        const titleCounter = document.getElementById('titleCounter');
+        const descCounter = document.getElementById('descCounter');
+        const objectivesCounter = document.getElementById('objectivesCounter');
+
+        function updateCounter(input, counter, maxLength) {
+            const currentLength = input.value.length;
+            counter.textContent = currentLength;
+
+            const counterElement = counter.parentElement;
+            counterElement.classList.remove('warning', 'danger');
+
+            if (currentLength > maxLength * 0.8) {
+                counterElement.classList.add('warning');
+            }
+            if (currentLength > maxLength * 0.95) {
+                counterElement.classList.add('danger');
+            }
+        }
+
+        if (titleInput && titleCounter) {
+            titleInput.addEventListener('input', () => updateCounter(titleInput, titleCounter, 100));
+        }
+
+        if (descInput && descCounter) {
+            descInput.addEventListener('input', () => updateCounter(descInput, descCounter, 500));
+        }
+
+        if (objectivesInput && objectivesCounter) {
+            objectivesInput.addEventListener('input', () => updateCounter(objectivesInput, objectivesCounter, 300));
+        }
+
+        // Thumbnail preview
+        const thumbnailInput = document.getElementById('thumbnailInput');
+        const thumbnailPreview = document.getElementById('thumbnailPreview');
+        const thumbnailImg = document.getElementById('thumbnailImg');
+
+        if (thumbnailInput) {
+            thumbnailInput.addEventListener('input', function() {
+                const url = this.value.trim();
+                if (url && isValidImageUrl(url)) {
+                    thumbnailImg.src = url;
+                    thumbnailPreview.classList.add('show');
+                    thumbnailImg.onerror = function() {
+                        thumbnailPreview.classList.remove('show');
+                    };
+                } else {
+                    thumbnailPreview.classList.remove('show');
+                }
+            });
+        }
+
+        function isValidImageUrl(url) {
+            return /\.(jpg|jpeg|png|gif|webp)$/i.test(url) || url.includes('imgur') || url.includes('cloudinary');
+        }
+
+        // Form validation and submission
+        const form = document.getElementById('courseForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Re-enable button after 5 seconds in case of issues
+                setTimeout(() => {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }, 5000);
+            });
+        }
+
+        // Real-time validation
+        const inputs = document.querySelectorAll('.form-control, .form-select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+
+            input.addEventListener('input', function() {
+                if (this.classList.contains('is-invalid')) {
+                    validateField(this);
+                }
+            });
+        });
+
+        function validateField(field) {
+            const value = field.value.trim();
+            const isRequired = field.hasAttribute('required') || field.hasAttribute('data-val-required');
+
+            if (isRequired && !value) {
+                field.classList.add('is-invalid');
+                field.classList.remove('is-valid');
+            } else if (value) {
+                field.classList.add('is-valid');
+                field.classList.remove('is-invalid');
+            } else {
+                field.classList.remove('is-valid', 'is-invalid');
+            }
+        }
+
+        // Initialize tooltips
+        const tooltips = document.querySelectorAll('.tooltip-icon');
+        tooltips.forEach(tooltip => {
+            tooltip.addEventListener('mouseenter', function() {
+                // Simple tooltip implementation
+                const title = this.getAttribute('title');
+                if (title) {
+                    this.setAttribute('data-original-title', title);
+                    this.removeAttribute('title');
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

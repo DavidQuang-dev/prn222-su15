@@ -1,0 +1,480 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.CoursesQuangTnvs.EditModel
+
+@{
+    ViewData["Title"] = "Chỉnh sửa khóa học";
+}
+
+<style>
+    .course-edit-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .edit-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        overflow: hidden;
+    }
+
+    .card-header {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        border: none;
+    }
+
+    .card-header h2 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+    .card-header .subtitle {
+        opacity: 0.9;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .form-section {
+        padding: 2rem;
+    }
+
+    .section-title {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e3f2fd;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .section-icon {
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .required-asterisk {
+        color: #e74c3c;
+    }
+
+    .form-control, .form-select {
+        border: 2px solid #e1e8ed;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: #fafbfc;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+        background: white;
+    }
+
+    .form-control.is-invalid {
+        border-color: #e74c3c;
+    }
+
+    .textarea-field {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .form-check {
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 2px solid #e1e8ed;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-check-input:checked {
+        background-color: #4facfe;
+        border-color: #4facfe;
+    }
+
+    .form-check-label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-left: 0.5rem;
+    }
+
+    .input-group-text {
+        background: #4facfe;
+        color: white;
+        border: 2px solid #4facfe;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .input-group .form-control {
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .btn-container {
+        padding: 2rem;
+        background: #f8f9fa;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-save {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn-save:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+    }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+    }
+
+    .btn-cancel:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+        background: linear-gradient(135deg, #5a6268 0%, #3d4246 100%);
+        color: white;
+        text-decoration: none;
+    }
+
+    .validation-summary {
+        background: #f8d7da !important;
+        border: 1px solid #f5c6cb !important;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-danger {
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+
+    .row {
+        margin: 0;
+    }
+</style>
+
+<div class="course-edit-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <div class="edit-card">
+                    <!-- Header -->
+                    <div class="card-header">
+                        <h2>✏️ Chỉnh sửa khóa học</h2>
+                        <p class="subtitle">Cập nhật thông tin khóa học phòng chống tệ nạn xã hội</p>
+                    </div>
+
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+                        <input type="hidden" asp-for="CoursesQuangTnv.CourseIdquangTnv" />
+
+                        <div class="form-section">
+                            <!-- Basic Information Section -->
+                            <div class="section-title">
+                                <div class="section-icon">📚</div>
+                                <span>Thông tin cơ bản</span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.Title" class="form-label">
+                                            Tiêu đề khóa học <span class="required-asterisk">*</span>
+                                        </label>
+                                        <input asp-for="CoursesQuangTnv.Title" class="form-control" placeholder="Nhập tiêu đề khóa học..." />
+                                        <span asp-validation-for="CoursesQuangTnv.Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.DifficultyLevel" class="form-label">
+                                            Độ khó <span class="required-asterisk">*</span>
+                                        </label>
+                                        <select asp-for="CoursesQuangTnv.DifficultyLevel" class="form-select">
+                                            <option value="">-- Chọn độ khó --</option>
+                                            <option value="Beginner">🟢 Cơ bản</option>
+                                            <option value="Intermediate">🟡 Trung bình</option>
+                                            <option value="Advanced">🔴 Nâng cao</option>
+                                        </select>
+                                        <span asp-validation-for="CoursesQuangTnv.DifficultyLevel" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.Description" class="form-label">
+                                    Mô tả khóa học
+                                </label>
+                                <textarea asp-for="CoursesQuangTnv.Description" class="form-control textarea-field"
+                                          placeholder="Mô tả chi tiết về nội dung và mục tiêu của khóa học..." rows="4"></textarea>
+                                <span asp-validation-for="CoursesQuangTnv.Description" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.LearningObjectives" class="form-label">
+                                    Mục tiêu học tập
+                                </label>
+                                <textarea asp-for="CoursesQuangTnv.LearningObjectives" class="form-control textarea-field"
+                                          placeholder="Liệt kê các mục tiêu học tập mà học viên sẽ đạt được..." rows="3"></textarea>
+                                <span asp-validation-for="CoursesQuangTnv.LearningObjectives" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <!-- Target & Category Section -->
+                            <div class="section-title">
+                                <div class="section-icon">🎯</div>
+                                <span>Đối tượng & Phân loại</span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.AgeGroup" class="form-label">
+                                            Nhóm tuổi <span class="required-asterisk">*</span>
+                                        </label>
+                                        <input asp-for="CoursesQuangTnv.AgeGroup" class="form-control"
+                                               placeholder="VD: 13-18, 18-25..." />
+                                        <span asp-validation-for="CoursesQuangTnv.AgeGroup" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.Category" class="form-label">
+                                            Danh mục <span class="required-asterisk">*</span>
+                                        </label>
+                                        <input asp-for="CoursesQuangTnv.Category" class="form-control"
+                                               placeholder="VD: Giáo dục sức khỏe..." />
+                                        <span asp-validation-for="CoursesQuangTnv.Category" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.DurationInMinutes" class="form-label">
+                                            Thời lượng (phút) <span class="required-asterisk">*</span>
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">⏱️</span>
+                                            <input asp-for="CoursesQuangTnv.DurationInMinutes" class="form-control"
+                                                   placeholder="60" type="number" min="1" />
+                                        </div>
+                                        <span asp-validation-for="CoursesQuangTnv.DurationInMinutes" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CoursesQuangTnv.InstructorName" class="form-label">
+                                    Tên giảng viên
+                                </label>
+                                <input asp-for="CoursesQuangTnv.InstructorName" class="form-control"
+                                       placeholder="Nhập tên giảng viên/chuyên gia..." />
+                                <span asp-validation-for="CoursesQuangTnv.InstructorName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <!-- Media & Links Section -->
+                            <div class="section-title">
+                                <div class="section-icon">🔗</div>
+                                <span>Nội dung & Hình ảnh</span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.ContentUrl" class="form-label">
+                                            URL nội dung khóa học
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">🌐</span>
+                                            <input asp-for="CoursesQuangTnv.ContentUrl" class="form-control"
+                                                   placeholder="https://..." type="url" />
+                                        </div>
+                                        <span asp-validation-for="CoursesQuangTnv.ContentUrl" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.ThumbnailUrl" class="form-label">
+                                            URL hình đại diện
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">🖼️</span>
+                                            <input asp-for="CoursesQuangTnv.ThumbnailUrl" class="form-control"
+                                                   placeholder="https://..." type="url" />
+                                        </div>
+                                        <span asp-validation-for="CoursesQuangTnv.ThumbnailUrl" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <!-- Statistics & Status Section -->
+                            <div class="section-title">
+                                <div class="section-icon">📊</div>
+                                <span>Thống kê & Trạng thái</span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.ViewCount" class="form-label">
+                                            Lượt xem
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">👁️</span>
+                                            <input asp-for="CoursesQuangTnv.ViewCount" class="form-control"
+                                                   type="number" min="0" readonly />
+                                        </div>
+                                        <span asp-validation-for="CoursesQuangTnv.ViewCount" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.Rating" class="form-label">
+                                            Đánh giá (1-5)
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">⭐</span>
+                                            <input asp-for="CoursesQuangTnv.Rating" class="form-control"
+                                                   type="number" min="0" max="5" step="0.1"/>
+                                        </div>
+                                        <span asp-validation-for="CoursesQuangTnv.Rating" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.CreatedDate" class="form-label">
+                                            Ngày tạo
+                                        </label>
+                                        <input asp-for="CoursesQuangTnv.CreatedDate" class="form-control"
+                                               type="datetime-local" readonly />
+                                        <span asp-validation-for="CoursesQuangTnv.CreatedDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="CoursesQuangTnv.UpdatedDate" class="form-label">
+                                            Ngày cập nhật
+                                        </label>
+                                        <input asp-for="CoursesQuangTnv.UpdatedDate" class="form-control"
+                                               type="datetime-local" />
+                                        <span asp-validation-for="CoursesQuangTnv.UpdatedDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="CoursesQuangTnv.IsActive" type="checkbox" />
+                                <label class="form-check-label" asp-for="CoursesQuangTnv.IsActive">
+                                    ✅ Khóa học đang hoạt động
+                                </label>
+                                <small class="text-muted d-block mt-1">
+                                    Bỏ tick để tạm ngưng khóa học này
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="btn-container">
+                            <button type="submit" class="btn btn-save">
+                                💾 Lưu thay đổi
+                            </button>
+                            <a asp-page="./Index" class="btn-cancel">
+                                ↩️ Quay lại danh sách
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Auto-update the UpdatedDate field when form is modified
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const updatedDateField = document.querySelector('input[name="CoursesQuangTnv.UpdatedDate"]');
+
+            if (form && updatedDateField) {
+                form.addEventListener('input', function() {
+                    const now = new Date();
+                    const isoString = now.toISOString().slice(0, 16);
+                    updatedDateField.value = isoString;
+                });
+            }
+
+            // Add loading state to submit button
+            // form.addEventListener('submit', function() {
+            //     const submitBtn = form.querySelector('.btn-save');
+            //     if (submitBtn) {
+            //         submitBtn.innerHTML = '⏳ Đang lưu...';
+            //         submitBtn.disabled = true;
+            //     }
+            // });
+        });
+    </script>
+}

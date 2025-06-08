@@ -1,0 +1,88 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.UserCoursesQuangTnvs.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserCoursesQuangTnv</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.EnrollmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.EnrollmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.CompletionDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.CompletionDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.Progress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.Progress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.Score)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.Score)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.CertificateIssued)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.CertificateIssued)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.CertificateUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.CertificateUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.LastAccessDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.LastAccessDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.Feedback)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.Feedback)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.Course)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.Course.AgeGroup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCoursesQuangTnv.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCoursesQuangTnv.User.Email)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="UserCoursesQuangTnv.UserCourseIdquangTnv" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

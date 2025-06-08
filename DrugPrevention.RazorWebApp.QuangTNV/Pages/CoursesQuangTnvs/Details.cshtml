@@ -1,0 +1,379 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.CoursesQuangTnvs.DetailsModel
+
+@{
+    ViewData["Title"] = "Chi tiết khóa học";
+}
+
+<style>
+    .course-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .course-thumbnail {
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .info-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+    .info-label {
+        font-weight: 600;
+        color: #5a67d8;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+        color: #2d3748;
+        line-height: 1.6;
+    }
+
+    .rating-stars {
+        color: #fbb040;
+        font-size: 1.2rem;
+    }
+
+    .difficulty-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .difficulty-beginner {
+        background: #c6f6d5;
+        color: #22543d;
+    }
+
+    .difficulty-intermediate {
+        background: #fed7aa;
+        color: #c05621;
+    }
+
+    .difficulty-advanced {
+        background: #feb2b2;
+        color: #c53030;
+    }
+
+    .stats-container {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        opacity: 0.9;
+        text-transform: uppercase;
+    }
+
+    .action-buttons {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .btn-custom {
+        padding: 0.8rem 2rem;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-primary-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+    }
+
+    .btn-secondary-custom {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+    }
+
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        color: white;
+        text-decoration: none;
+    }
+
+    .content-url-link {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .content-url-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: white;
+            text-decoration: none;
+        }
+
+    .section-title {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #667eea;
+        display: inline-block;
+    }
+
+    .age-group-badge {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        color: #8b4513;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .category-badge {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #2d3748;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="course-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="mb-3">@Html.DisplayFor(model => model.CoursesQuangTnv.Title)</h1>
+                <p class="lead mb-0">Khóa học về phòng chống tệ nạn xã hội</p>
+            </div>
+            <div class="col-md-4 text-center">
+                @if (!string.IsNullOrEmpty(Model.CoursesQuangTnv.ThumbnailUrl?.ToString()))
+                {
+                    <img src="@Html.DisplayFor(model => model.CoursesQuangTnv.ThumbnailUrl)"
+                         alt="Course Thumbnail" class="course-thumbnail" />
+                }
+                else
+                {
+                    <div class="course-thumbnail d-flex align-items-center justify-content-center"
+                         style="background: rgba(255,255,255,0.2);">
+                        <i class="fas fa-graduation-cap fa-3x"></i>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Thống kê tổng quan -->
+    <div class="info-card">
+        <h3 class="section-title">Thống kê khóa học</h3>
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">@Html.DisplayFor(model => model.CoursesQuangTnv.ViewCount)</span>
+                <span class="stat-label">Lượt xem</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">@Html.DisplayFor(model => model.UserCoursesQuangTnv.Count)</span>
+                <span class="stat-label">Học viên</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">@Html.DisplayFor(model => model.CoursesQuangTnv.DurationInMinutes)</span>
+                <span class="stat-label">Phút</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number rating-stars">
+                    @{
+                        var rating = Model.CoursesQuangTnv.Rating ?? 0;
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= rating)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                            else
+                            {
+                                <i class="far fa-star"></i>
+                            }
+                        }
+                    }
+                </span>
+                <span class="stat-label">Đánh giá</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Thông tin cơ bản -->
+        <div class="col-lg-8">
+            <div class="info-card">
+                <h3 class="section-title">Mô tả khóa học</h3>
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.CoursesQuangTnv.Description)
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3 class="section-title">Mục tiêu học tập</h3>
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.CoursesQuangTnv.LearningObjectives)
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.CoursesQuangTnv.ContentUrl?.ToString()))
+            {
+                <div class="info-card text-center">
+                    <h3 class="section-title">Nội dung khóa học</h3>
+                    <a href="@Html.DisplayFor(model => model.CoursesQuangTnv.ContentUrl)"
+                       class="content-url-link" target="_blank">
+                        <i class="fas fa-play-circle me-2"></i>
+                        Bắt đầu học ngay
+                    </a>
+                </div>
+            }
+        </div>
+
+        <!-- Thông tin chi tiết -->
+        <div class="col-lg-4">
+            <div class="info-card">
+                <h3 class="section-title">Thông tin chi tiết</h3>
+
+                <div class="mb-3">
+                    <div class="info-label">Giảng viên</div>
+                    <div class="info-value">
+                        <i class="fas fa-user-tie me-2 text-primary"></i>
+                        @Html.DisplayFor(model => model.CoursesQuangTnv.InstructorName)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Độ tuổi phù hợp</div>
+                    <div class="info-value">
+                        <span class="age-group-badge">
+                            <i class="fas fa-users me-2"></i>
+                            @Html.DisplayFor(model => model.CoursesQuangTnv.AgeGroup)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Danh mục</div>
+                    <div class="info-value">
+                        <span class="category-badge">
+                            <i class="fas fa-tag me-2"></i>
+                            @Html.DisplayFor(model => model.CoursesQuangTnv.Category)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Mức độ khó</div>
+                    <div class="info-value">
+                        <span class="difficulty-badge difficulty-@(Model.CoursesQuangTnv.DifficultyLevel?.ToString().ToLower())">
+                            <i class="fas fa-chart-line me-2"></i>
+                            @Html.DisplayFor(model => model.CoursesQuangTnv.DifficultyLevel)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Trạng thái</div>
+                    <div class="info-value">
+                        @if (Model.CoursesQuangTnv.IsActive == true)
+                        {
+                            <span class="badge bg-success px-3 py-2">
+                                <i class="fas fa-check-circle me-2"></i>Đang hoạt động
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary px-3 py-2">
+                                <i class="fas fa-pause-circle me-2"></i>Tạm dừng
+                            </span>
+                        }
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Ngày tạo</div>
+                    <div class="info-value">
+                        <i class="fas fa-calendar-plus me-2 text-success"></i>
+                        @Html.DisplayFor(model => model.CoursesQuangTnv.CreatedDate)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="info-label">Cập nhật lần cuối</div>
+                    <div class="info-value">
+                        <i class="fas fa-calendar-edit me-2 text-warning"></i>
+                        @Html.DisplayFor(model => model.CoursesQuangTnv.UpdatedDate)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút hành động -->
+    <div class="action-buttons">
+        <a asp-page="./Edit" asp-route-id="@Model.CoursesQuangTnv.CourseIdquangTnv"
+           class="btn-custom btn-primary-custom">
+            <i class="fas fa-edit me-2"></i>Chỉnh sửa
+        </a>
+        <a asp-page="./Index" class="btn-custom btn-secondary-custom">
+            <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+        </a>
+    </div>
+</div>
+
+<!-- Font Awesome cho icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />

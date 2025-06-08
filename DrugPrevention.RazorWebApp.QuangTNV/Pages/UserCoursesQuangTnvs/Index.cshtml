@@ -1,0 +1,96 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.UserCoursesQuangTnvs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].EnrollmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].CompletionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].Progress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].CertificateIssued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].CertificateUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].LastAccessDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].Feedback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCoursesQuangTnv[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.UserCoursesQuangTnv) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Progress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificateIssued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificateUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastAccessDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.AgeGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserCourseIdquangTnv">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserCourseIdquangTnv">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserCourseIdquangTnv">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

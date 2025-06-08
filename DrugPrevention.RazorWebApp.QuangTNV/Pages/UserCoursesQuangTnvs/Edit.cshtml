@@ -1,0 +1,85 @@
+﻿@page
+@model DrugPrevention.RazorWebApp.QuangTNV.Pages.UserCoursesQuangTnvs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UserCoursesQuangTnv</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserCoursesQuangTnv.UserCourseIdquangTnv" />
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.UserId" class="control-label"></label>
+                <select asp-for="UserCoursesQuangTnv.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserCoursesQuangTnv.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.CourseId" class="control-label"></label>
+                <select asp-for="UserCoursesQuangTnv.CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <span asp-validation-for="UserCoursesQuangTnv.CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.EnrollmentDate" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.EnrollmentDate" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.EnrollmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.CompletionDate" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.CompletionDate" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.CompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.Progress" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.Progress" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.Progress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.Score" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.Score" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.Score" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.CertificateIssued" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.CertificateIssued" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.CertificateIssued" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.CertificateUrl" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.CertificateUrl" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.CertificateUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.LastAccessDate" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.LastAccessDate" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.LastAccessDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.Feedback" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.Feedback" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCoursesQuangTnv.Rating" class="control-label"></label>
+                <input asp-for="UserCoursesQuangTnv.Rating" class="form-control" />
+                <span asp-validation-for="UserCoursesQuangTnv.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
