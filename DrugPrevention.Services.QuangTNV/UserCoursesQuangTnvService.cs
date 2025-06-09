@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DrugPrevention.Services.QuangTNV
-{
-    public class UserCoursesQuangTnvService : IUserCoursesQuangTnvService
+{    public class UserCoursesQuangTnvService : IUserCoursesQuangTnvService
     {
         private readonly UserCoursesQuangTnvRepository _repository;
-        public UserCoursesQuangTnvService()
+        
+        public UserCoursesQuangTnvService(UserCoursesQuangTnvRepository repository)
         {
-            _repository ??= new UserCoursesQuangTnvRepository();
+            _repository = repository;
         }
 
         public async Task<int> CreateAsync(UserCoursesQuangTnv userCoursesQuangTnv)

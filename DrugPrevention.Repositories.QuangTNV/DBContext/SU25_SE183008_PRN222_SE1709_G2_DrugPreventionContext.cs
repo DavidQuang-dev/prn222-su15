@@ -17,9 +17,7 @@ public partial class SU25_SE183008_PRN222_SE1709_G2_DrugPreventionContext : DbCo
     public SU25_SE183008_PRN222_SE1709_G2_DrugPreventionContext(DbContextOptions<SU25_SE183008_PRN222_SE1709_G2_DrugPreventionContext> options)
         : base(options)
     {
-    }
-
-    public virtual DbSet<CoursesQuangTnv> UserCoursesQuangTnv { get; set; }
+    }    public virtual DbSet<CoursesQuangTnv> CoursesQuangTnvs { get; set; }
 
     public virtual DbSet<SystemUserAccount> SystemUserAccounts { get; set; }
 

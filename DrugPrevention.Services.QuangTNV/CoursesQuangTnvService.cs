@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DrugPrevention.Services.QuangTNV
-{
-    public class CoursesQuangTnvService : ICoursesQuangTnvService
+{    public class CoursesQuangTnvService : ICoursesQuangTnvService
     {
         private readonly CoursesQuangTnvRepository _repository;
-        public CoursesQuangTnvService()
+        
+        public CoursesQuangTnvService(CoursesQuangTnvRepository repository)
         {
-            _repository ??= new CoursesQuangTnvRepository();
+            _repository = repository;
         }
 
         public async Task<int> AddCourseAsync(CoursesQuangTnv course)
@@ -26,12 +26,11 @@ namespace DrugPrevention.Services.QuangTNV
         {
             return await _repository.RemoveAsync(course);
         }
-
-        public async Task<bool> DeleteCourseAsync(string courseID)
+        public async Task<bool> DeleteCourseAsync(int courseID)
         {
-            if (string.IsNullOrEmpty(courseID))
+            if (courseID <= 0)
             {
-                throw new ArgumentException("Course ID cannot be null or empty.", nameof(courseID));
+                throw new ArgumentException("Course ID must be greater than 0.", nameof(courseID));
             }
             var course = await _repository.GetByIdAsync(courseID);
             if (course == null)

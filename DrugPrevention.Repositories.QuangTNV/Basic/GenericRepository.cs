@@ -86,11 +86,9 @@ namespace DrugPrevention.Repositories.QuangTNV.Basic
         public T GetById(string code)
         {
             return _context.Set<T>().Find(code);
-        }
-
+        }        
         public async Task<T> GetByIdAsync(string code)
         {
-            return await _context.Set<T>().FindAsync(code);
             return await _context.Set<T>().FindAsync(code);
         }
 

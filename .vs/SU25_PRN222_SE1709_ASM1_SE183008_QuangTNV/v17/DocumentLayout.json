@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2A5E22D7-7FC5-4B63-AACC-127C060413D6}|DrugPrevention.Repositories.QuangTNV\\DrugPrevention.Repositories.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.repositories.quangtnv\\basic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A5E22D7-7FC5-4B63-AACC-127C060413D6}|DrugPrevention.Repositories.QuangTNV\\DrugPrevention.Repositories.QuangTNV.csproj|solutionrelative:drugprevention.repositories.quangtnv\\basic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52AABB6B-C649-4DF3-87CD-E23DB351CE26}|DrugPrevention.Services.QuangTNV\\DrugPrevention.Services.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.services.quangtnv\\coursesquangtnvservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52AABB6B-C649-4DF3-87CD-E23DB351CE26}|DrugPrevention.Services.QuangTNV\\DrugPrevention.Services.QuangTNV.csproj|solutionrelative:drugprevention.services.quangtnv\\coursesquangtnvservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\hubs\\drugpreventionhubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\hubs\\drugpreventionhubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A5E22D7-7FC5-4B63-AACC-127C060413D6}|DrugPrevention.Repositories.QuangTNV\\DrugPrevention.Repositories.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.repositories.quangtnv\\models\\coursesquangtnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2A5E22D7-7FC5-4B63-AACC-127C060413D6}|DrugPrevention.Repositories.QuangTNV\\DrugPrevention.Repositories.QuangTNV.csproj|solutionrelative:drugprevention.repositories.quangtnv\\models\\coursesquangtnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|f:\\fptu semesters\\semester_7\\prn222\\su25_prn222_se1709_asm1_se183008_quangtnv\\drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B51D728-60DA-4F36-82CC-7BDD3BE279AA}|DrugPrevention.RazorWebApp.QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV.csproj|solutionrelative:drugprevention.razorwebapp.quangtnv\\pages\\coursesquangtnvs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 116,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,64 +54,92 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
-              "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
-              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
-              "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
-              "ViewState": "AgIAAFcCAAAAAAAAAAAUwFsCAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T09:07:01.139Z"
+              "DocumentIndex": 0,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Repositories.QuangTNV\\Basic\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "DrugPrevention.Repositories.QuangTNV\\Basic\\GenericRepository.cs",
+              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Repositories.QuangTNV\\Basic\\GenericRepository.cs",
+              "RelativeToolTip": "DrugPrevention.Repositories.QuangTNV\\Basic\\GenericRepository.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAUwFAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T08:25:20.044Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
-              "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
-              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
-              "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4CAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T07:16:34.219Z",
+              "DocumentIndex": 1,
+              "Title": "CoursesQuangTnvService.cs",
+              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Services.QuangTNV\\CoursesQuangTnvService.cs",
+              "RelativeDocumentMoniker": "DrugPrevention.Services.QuangTNV\\CoursesQuangTnvService.cs",
+              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Services.QuangTNV\\CoursesQuangTnvService.cs",
+              "RelativeToolTip": "DrugPrevention.Services.QuangTNV\\CoursesQuangTnvService.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAkwCIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T08:24:32.477Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CoursesQuangTnv.cs",
-              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Repositories.QuangTNV\\Models\\CoursesQuangTnv.cs",
-              "RelativeDocumentMoniker": "DrugPrevention.Repositories.QuangTNV\\Models\\CoursesQuangTnv.cs",
-              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.Repositories.QuangTNV\\Models\\CoursesQuangTnv.cs",
-              "RelativeToolTip": "DrugPrevention.Repositories.QuangTNV\\Models\\CoursesQuangTnv.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T07:18:21.774Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Program.cs",
               "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Program.cs",
               "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Program.cs",
               "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAACgAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAADQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T10:08:12.032Z"
+              "WhenOpened": "2025-06-09T08:15:01.271Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DrugPreventionHubs.cs",
               "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Hubs\\DrugPreventionHubs.cs",
               "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Hubs\\DrugPreventionHubs.cs",
               "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Hubs\\DrugPreventionHubs.cs",
               "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Hubs\\DrugPreventionHubs.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBwAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwCcAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T09:44:07.326Z"
+              "WhenOpened": "2025-06-09T06:59:11.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Delete.cshtml",
+              "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Delete.cshtml",
+              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Delete.cshtml",
+              "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Delete.cshtml",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAQwLIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-09T06:56:45.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
+              "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
+              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
+              "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Create.cshtml",
+              "ViewState": "AgIAAEQCAAAAAAAAAAAAAFUCAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T09:07:01.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
+              "RelativeDocumentMoniker": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
+              "ToolTip": "F:\\FPTU Semesters\\SEMESTER_7\\PRN222\\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\\DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
+              "RelativeToolTip": "DrugPrevention.RazorWebApp.QuangTNV\\Pages\\CoursesQuangTnvs\\Index.cshtml",
+              "ViewState": "AgIAAHkCAAAAAAAAAAAQwIQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T07:16:34.219Z"
             }
           ]
         },

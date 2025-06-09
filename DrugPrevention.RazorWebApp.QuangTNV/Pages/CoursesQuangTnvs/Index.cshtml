@@ -640,42 +640,151 @@
 <script>
     "use strict";
 
-    var connection = new signalR.HubConnectionBuilder().withUrl("/drugPreventionHub").build();
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/drugPreventionHub")
+        .withAutomaticReconnect()
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
 
     connection.start().then(function () {
         console.log("Connected to the SignalR Hub");
     }).catch(function (err) {
-        return console.error(err.toString());
+        console.error("SignalR connection error: ", err.toString());
+        // Try to reconnect after 5 seconds
+        setTimeout(function() {
+            connection.start();
+        }, 5000);
     });
 
+    // Handle connection closed
+    connection.onclose(function (error) {
+        console.log("SignalR connection closed", error);
+    });
+
+    // Handle reconnecting
+    connection.onreconnecting(function (error) {
+        console.log("SignalR reconnecting", error);
+    });
+
+    // Handle reconnected
+    connection.onreconnected(function (connectionId) {
+        console.log("SignalR reconnected", connectionId);
+    });    
     connection.on("Receive_DeleteCourseQuangTNV", function (CourseIdquangTnv) {
+        console.log("Received delete signal for course:", CourseIdquangTnv);
         $('#coursesContainer').find(`div[id='${CourseIdquangTnv}']`).remove();
+        
+        // Show success message
+        showAlert('success', 'Course deleted successfully!');
     });
-    connection.on("Receive_CreateCourseQuangTNV", function (item) {
+
+    // Handle delete errors
+    connection.on("Receive_DeleteError", function (errorMessage) {
+        console.error("Delete error received:", errorMessage);
+        showAlert('danger', 'Error deleting course: ' + errorMessage);
+    });
+
+    // Function to show alert messages
+    function showAlert(type, message) {
+        const alertHtml = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        
+        // Insert at the top of the page
+        $('main').prepend(alertHtml);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut(500, function() {
+                $(this).remove();
+            });
+        }, 5000);
+    }connection.on("Receive_CreateCourseQuangTNV", function (item) {
         console.log(item);
-        var CourseQuangTNV = `
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>${item.Title}</td>
-                    <td>${item.DifficultyLevel}</td>
-                    <td>${item.Description}</td>
-                    <td>${item.Category}</td>
-                    <td>${item.AgeGroup}</td>
-                    <td>${item.InstructorName}</td>
-                    <td>${item.DurationInMinutes}</td>
-                    <td>${item.ContentUrl}</td>
-                    <td>${item.ThumbnailUrl}</td>
-                </tr>
-            `;
+        
+        // Create new course card HTML matching existing structure
+        var courseCard = `
+            <div class="col-lg-6 course-item"
+                 id="${item.CourseIdquangTnv}"
+                 data-title="${item.Title?.toLowerCase() || ''}"
+                 data-category="${item.Category?.toLowerCase() || ''}"
+                 data-status="${item.IsActive ? 'active' : 'inactive'}">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h5 class="course-title">${item.Title || ''}</h5>
+                                <div class="course-instructor">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>${item.InstructorName || ''}</span>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                ${item.ThumbnailUrl ? 
+                                    `<img src="${item.ThumbnailUrl}" alt="Course thumbnail" class="thumbnail-preview">` :
+                                    `<div class="thumbnail-preview bg-light d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-image text-muted"></i>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">${item.Description || ''}</p>
+                        <div class="course-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${item.DurationInMinutes || 0} min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>${item.AgeGroup || ''}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-eye"></i>
+                                <span>${item.ViewCount || 0} views</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge badge-custom ${item.IsActive ? 'badge-active' : 'badge-inactive'}">
+                                    ${item.IsActive ? 'Active' : 'Inactive'}
+                                </span>
+                                ${item.Category ? `<span class="badge bg-secondary ms-2">${item.Category}</span>` : ''}
+                            </div>
+                            <span class="difficulty-badge difficulty-${item.DifficultyLevel?.toLowerCase() || 'beginner'}">
+                                ${item.DifficultyLevel || 'Beginner'}
+                            </span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="/CoursesQuangTnvs/Edit?id=${item.CourseIdquangTnv}" class="btn-action btn-edit">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <a href="/CoursesQuangTnvs/Details?id=${item.CourseIdquangTnv}" class="btn-action btn-details">
+                                <i class="fas fa-info me-1"></i>Details
+                            </a>
+                            <a href="/CoursesQuangTnvs/Delete?id=${item.CourseIdquangTnv}" class="btn-action btn-delete">
+                                <i class="fas fa-trash me-1"></i>Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        alert(CourseQuangTNV);
-
-        $('CourseIdquangTnv').append(CourseQuangTNV)
+        // Add the new course card to the container
+        $('#coursesContainer').append(courseCard);
+        
+        // Update statistics if needed
+        location.reload(); // Simple approach to refresh stats
     });
 
 </script>
 
-<!-- Add Font Awesome for icons -->
+<!-- Add jQuery and Font Awesome for icons -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="~/js/signalr/dist/browser/signalr.js"></script>

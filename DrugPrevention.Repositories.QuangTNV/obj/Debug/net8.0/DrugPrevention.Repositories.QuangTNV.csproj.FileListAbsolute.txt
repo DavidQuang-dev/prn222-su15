@@ -1,0 +1,15 @@
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\bin\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.deps.json
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\bin\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.runtimeconfig.json
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\bin\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.dll
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\bin\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.pdb
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.csproj.AssemblyReference.cache
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.GeneratedMSBuildEditorConfig.editorconfig
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.AssemblyInfoInputs.cache
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.AssemblyInfo.cs
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.csproj.CoreCompileInputs.cache
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.sourcelink.json
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.dll
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\refint\DrugPrevention.Repositories.QuangTNV.dll
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.pdb
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\DrugPrevention.Repositories.QuangTNV.genruntimeconfig.cache
+F:\FPTU Semesters\SEMESTER_7\PRN222\SU25_PRN222_SE1709_ASM1_SE183008_QuangTNV\DrugPrevention.Repositories.QuangTNV\obj\Debug\net8.0\ref\DrugPrevention.Repositories.QuangTNV.dll

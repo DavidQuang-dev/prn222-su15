@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DrugPrevention.Services.QuangTNV
-{
-    public class SystemUserAccountService : ISystemUserAccountService
+{    public class SystemUserAccountService : ISystemUserAccountService
     {
         private readonly SystemUserAccountRepository _repository;
-        public SystemUserAccountService()
+        
+        public SystemUserAccountService(SystemUserAccountRepository repository)
         {
-            _repository ??= new SystemUserAccountRepository();
+            _repository = repository;
         }
 
         public async Task<SystemUserAccount> GetUserAccount(string username, string password)

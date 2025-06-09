@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\DrugPrevention.RazorWebApp.QuangTNV.props" />
+</Project>

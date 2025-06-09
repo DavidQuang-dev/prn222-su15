@@ -112,29 +112,74 @@
         <a asp-page="./Index">Back to List</a>
     </form>
 </div>
-<script src="~/js/signalr/dist/browser/signalr.js"/>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script>
-    "use strict";
-
-    var connection = new signalR.HubConnectionBuilder().withUrl("/drugPreventionHub").build();
-
-    connection.start().then(function () {
+    "use strict";    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/drugPreventionHub")
+        .withAutomaticReconnect()
+        .configureLogging(signalR.LogLevel.Information)
+        .build();    connection.start().then(function () {
         console.log("Connected to the SignalR Hub");
     }).catch(function (err) {
-        return console.error(err.toString());
+        console.error("SignalR connection error: ", err.toString());
+        // Try to reconnect after 5 seconds
+        setTimeout(function() {
+            connection.start();
+        }, 5000);
     });
 
-    document.getElementById("btnHubDelete").addEventListener("click", function (event) {
+    // Handle successful deletion
+    connection.on("Receive_DeleteCourseQuangTNV", function (courseId) {
+        console.log("Course deleted successfully:", courseId);
+        showAlert('success', 'Course deleted successfully! Redirecting...');
+        // Redirect to index page after successful deletion
+        setTimeout(function() {
+            window.location.href = '/CoursesQuangTnvs';
+        }, 2000);
+    });
+
+    // Handle delete errors
+    connection.on("Receive_DeleteError", function (errorMessage) {
+        console.error("Delete error received:", errorMessage);
+        showAlert('danger', 'Error deleting course: ' + errorMessage);
+    });
+
+    // Function to show alert messages
+    function showAlert(type, message) {
+        const alertHtml = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        
+        // Insert at the top of the page
+        $('main').prepend(alertHtml);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut(500, function() {
+                $(this).remove();
+            });
+        }, 5000);
+    }document.getElementById("btnHubDelete").addEventListener("click", function (event) {
 
         //alert("btnHubDelete");
 
-        var dataObj = document.getElementById("btnHubDelete").value;
-        console.log(dataObj);
+        var dataObj = document.getElementById("courseId").value;
+        console.log("Deleting course with ID:", dataObj);
 
-        //// Calls method of SignalRHub server with primary key param (zPaymentHub.cs)
-        connection.invoke("HubDelete_CoursesQuangTnv", dataObj).catch(function (err) {
-            return console.error(err.toString());
+        @* Calls method of SignalRHub server with primary key *@
+        connection.invoke("HubDelete_CoursesQuangTnv", dataObj).then(function() {
+            console.log("HubDelete_CoursesQuangTnv method called successfully");
+            setTimeout(()=> {
+                window.location.href = '/CoursesQuangTnvs';
+            }, 1000);
+        }).catch(function (err) {
+            console.error("Error calling hub method:", err.toString());
+            return;
         });
+
         event.preventDefault();
     });
 

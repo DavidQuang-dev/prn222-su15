@@ -12,9 +12,8 @@ namespace DrugPrevention.Services.QuangTNV
         Task<List<CoursesQuangTnv>> GetAllCoursesAsync();
         Task<CoursesQuangTnv> GetCourseByIdAsync(int courseId);
         Task<int> AddCourseAsync(CoursesQuangTnv course);
-        Task<int> UpdateCourseAsync(CoursesQuangTnv course);
-        Task<bool> DeleteCourseAsync(CoursesQuangTnv course);
-        Task<bool> DeleteCourseAsync(string courseID);
+        Task<int> UpdateCourseAsync(CoursesQuangTnv course);        Task<bool> DeleteCourseAsync(CoursesQuangTnv course);
+        Task<bool> DeleteCourseAsync(int courseID);
 
     }
 }
